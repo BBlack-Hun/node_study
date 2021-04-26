@@ -1,1 +1,22 @@
-{}
+{
+  "name": "node_study",
+  "description": "Server side javascript tutorials",
+  "version": "1.0.0",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BBlack-Hun/node_study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BBlack-Hun/node_study/issues"
+  },
+  "homepage": "https://github.com/BBlack-Hun/node_study#readme",
+  "dependencies": {
+    "underscore": "^1.13.1"
+  }
+}
