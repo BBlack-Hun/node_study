@@ -4,6 +4,13 @@ const app = express();
 // 정적 파일을 서비스 하는 법 (0427)
 app.use(express.static('public'));
 
+app.get('/topic', (req, res) => {
+  // req의 쿼리로 들어온 id값을 반환해준다.
+  //   res.send(`${req.query.id}`);
+  // 복수의 값을 받고 싶은 경우
+  res.send(req.query.id + ',' + req.query.name);
+});
+
 app.get('/', (req, res) => {
   res.send(`<h1>Hello World!</h1>`);
 });
