@@ -8,6 +8,28 @@ app.get('/', (req, res) => {
   res.send(`<h1>Hello World!</h1>`);
 });
 
+app.get('/dynamic', (req, res) => {
+  let lis = '';
+  for (var i = 0; i < 5; i++) {
+    lis = lis + `<li>coding</li>`;
+  }
+  let time = Date();
+  const output = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hello, Dynamic!!</h1>
+        ${lis}
+        ${time}
+    </body>
+    </html>`;
+  res.send(output);
+});
+
 app.get('/route', (req, res) => {
   res.send('Hello Router, <img src="/wraith.png">');
 });
