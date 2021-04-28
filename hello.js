@@ -1,8 +1,21 @@
 const express = require('express');
 
 const app = express();
+
+app.set('view engine', 'ejs');
+app.set('views', './views');
 // 정적 파일을 서비스 하는 법 (0427)
 app.use(express.static('public'));
+
+app.get('/form', (req, res) => {
+  res.render('form');
+});
+
+app.get('/form_receiver', (req, res) => {
+  const title = req.query.title;
+  const description = req.query.description;
+  res.send(title + ', ' + description);
+});
 
 app.get('/topic', (req, res) => {
   const topics = ['Javascript is ....', 'Nodejs is ...', 'Express is ...'];
