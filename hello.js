@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyparser = require('body-parser');
 
 const app = express();
 
@@ -6,6 +7,8 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 // 정적 파일을 서비스 하는 법 (0427)
 app.use(express.static('public'));
+// 미들웨어로 붙였다. => 외부에서의 요청은 이 미들웨어를 거치게 됨
+app.use(bodyparser.urlencoded({ extended: false }));
 
 app.get('/form', (req, res) => {
   res.render('form');
@@ -14,6 +17,12 @@ app.get('/form', (req, res) => {
 app.get('/form_receiver', (req, res) => {
   const title = req.query.title;
   const description = req.query.description;
+  res.send(title + ', ' + description);
+});
+
+app.post('/form_receiver', (req, res) => {
+  const title = req.body.title;
+  const description = req.body.description;
   res.send(title + ', ' + description);
 });
 
