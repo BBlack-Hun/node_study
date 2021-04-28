@@ -5,10 +5,17 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/topic', (req, res) => {
+  const topics = ['Javascript is ....', 'Nodejs is ...', 'Express is ...'];
+  const output = `
+  <a href="/topic?id=0">JavaScript</a></br>
+  <a href="/topic?id=1">Nodejs</a></br>
+  <a href="/topic?id=2">Express</a></br></br>
+  ${topics[req.query.id]}
+  `;
   // req의 쿼리로 들어온 id값을 반환해준다.
-  //   res.send(`${req.query.id}`);
+  res.send(output);
   // 복수의 값을 받고 싶은 경우
-  res.send(req.query.id + ',' + req.query.name);
+  // res.send(req.query.id + ',' + req.query.name);
 });
 
 app.get('/', (req, res) => {
