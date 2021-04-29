@@ -20,6 +20,7 @@ app.get('/form_receiver', (req, res) => {
   res.send(title + ', ' + description);
 });
 
+// post는 용량에 상관 없이 온전한 데이터를 전달할 때 사용한다
 app.post('/form_receiver', (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
