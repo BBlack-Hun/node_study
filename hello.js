@@ -7,7 +7,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 // 정적 파일을 서비스 하는 법 (0427)
 app.use(express.static('public'));
-// 미들웨어로 붙였다. => 외부에서의 요청은 이 미들웨어를 거치게 됨
+// 미들웨어로 붙였다. => 외부에서의 요청은 이 미들웨어를 거치게 됨 ->  req의 body라는 객체를 만들어 줌.
 app.use(bodyparser.urlencoded({ extended: false }));
 
 app.get('/form', (req, res) => {
